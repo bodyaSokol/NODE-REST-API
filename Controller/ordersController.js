@@ -22,7 +22,7 @@ exports.create = (req,res) =>{
             let final_sum = 0;
             products.forEach(element => {
                 const product_id=element.id;
-                const product_amount=element.amount;
+                const product_amount=element.productCount;
                 const product_price=element.price;
                 const product_discount=element.discount;
                 final_sum = final_sum + ((product_price-product_discount)*product_amount);
