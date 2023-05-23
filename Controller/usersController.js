@@ -26,6 +26,16 @@ exports.getUser = (req,res) =>{
         }
     })
 }
+exports.getUserOrders = (req,res) =>{
+    const telegram_id=req.params.id;
+    db.query("SELECT * FROM `orders` WHERE `telegram_id`='"+telegram_id+"'",(error,rows,fields)=>{
+        if(error){
+            response.status(400,error, res);
+        }else {
+            response.status(200,rows, res);
+        }
+    })
+}
 exports.create = (req,res) =>{
     const telegram_id=req.body.telegram_id;
     db.query("SELECT `telegram_id` FROM `users` WHERE `telegram_id`='"+telegram_id+"'",(error,rows,fields)=>{

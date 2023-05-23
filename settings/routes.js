@@ -15,5 +15,6 @@ module.exports = (app) =>{
     app.route('/api/users/phone/set').post(usersController.setPhone);//устанавливаем роут
     app.route('/api/users').get(usersController.getAllUsers);//устанавливаем роут
     app.route('/api/users/:id').get(usersController.getUser);//устанавливаем роут
+    app.route('/api/users/:id/orders').get(usersController.getUserOrders);//
     app.route('/api/users').post(usersController.create);//устанавливаем роут
 }
