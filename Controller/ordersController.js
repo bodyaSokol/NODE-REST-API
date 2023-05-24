@@ -35,7 +35,7 @@ exports.create = (req,res) =>{
                     }
                 })
             });
-            let bonuses_accrued = final_sum * bonuces_percent;
+            let bonuses_accrued = Math.ceil(final_sum * bonuces_percent);
             db.query("SELECT `bonuces_amount` FROM `users` WHERE `telegram_id`='"+telegram_id+"'",(error,rows,fields)=>{
                 if(error){
                     console.log(error);
