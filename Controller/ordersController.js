@@ -41,7 +41,7 @@ exports.create = (req,res) =>{
                     console.log(error);
                 }else{
                     let actual_bonuces_amount = rows[0].bonuces_amount;
-                    actual_bonuces_amount = actual_bonuces_amount - bonuces_used + bonuses_accrued;
+                    actual_bonuces_amount = Math.ceil(actual_bonuces_amount - bonuces_used + bonuses_accrued);
                     db.query("UPDATE `users` SET `bonuces_amount`='"+actual_bonuces_amount+"' WHERE `telegram_id`='"+telegram_id+"'",(error,rows,fields)=>{
                         if(error){
                             console.log(error);
