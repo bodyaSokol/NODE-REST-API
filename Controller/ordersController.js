@@ -35,11 +35,12 @@ exports.create = (req,res) =>{
                 })
             });
             let bonuces_percent;
-            if(final_sum<1000){bonuces_percent=1}
-            else if(final_sum<2000){bonuces_percent=2}
-            else if(final_sum<3000){bonuces_percent=3}
-            else if(final_sum<4000){bonuces_percent=4}
-            else if(final_sum<5000){bonuces_percent=5}
+            if(final_sum<500){bonuces_percent=1}
+            else if(final_sum<1000){bonuces_percent=2}
+            else if(final_sum<2000){bonuces_percent=3}
+            else if(final_sum<3000){bonuces_percent=4}
+            else if(final_sum<4000){bonuces_percent=5}
+            else if(final_sum<5000){bonuces_percent=7}
             else if(final_sum>=5000){bonuces_percent=10}
             let bonuses_accrued = Math.ceil(final_sum * (bonuces_percent * 0.01));
             db.query("SELECT `bonuces_amount` FROM `users` WHERE `telegram_id`='"+telegram_id+"'",(error,rows,fields)=>{
